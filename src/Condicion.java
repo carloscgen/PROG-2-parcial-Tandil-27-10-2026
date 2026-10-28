@@ -1,3 +1,3 @@
 public abstract class Condicion {
-    public abstract boolean cumple(Jugador j);
+    public abstract boolean cumple(Elemento e);
 }

@@ -5,7 +5,7 @@ public class CondicionAnioPosterior extends Condicion {
         this.anio = anio;
     }
 
-    public boolean cumple(Jugador j) {
-        return j.getTemporadaDebut() > this.anio;
+    public boolean cumple(Elemento e) {
+        return e.getTemporadaDebut() > this.anio;
     }
 }

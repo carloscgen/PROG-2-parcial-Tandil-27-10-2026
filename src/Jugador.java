@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Jugador extends Elemento {
+public class Jugador extends Elemento implements Comparable<Jugador> {
     private int tempDebut;
     private double puntoExp;
     private List<String> movimientos;
@@ -56,4 +56,17 @@ public class Jugador extends Elemento {
     public int getCantidadVictorias() {
         return this.victorias;
     }
+
+    public int compareTo(Jugador j) {
+        int resultado = Double.compare(this.calcularAura(), j.calcularAura());
+        if (resultado != 0) {
+            return resultado;
+        }
+        resultado = Integer.compare(this.getCantidadVictorias(), j.getCantidadVictorias());
+        if (resultado != 0) {
+            return resultado;
+        }
+        return Double.compare(this.getXp(), j.getXp());
+    }
+
 }

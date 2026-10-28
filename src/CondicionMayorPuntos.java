@@ -5,7 +5,7 @@ public class CondicionMayorPuntos extends Condicion {
         this.puntos = puntos;
     }
 
-    public boolean cumple(Jugador j) {
-        return j.getXp() > this.puntos;
+    public boolean cumple(Elemento e) {
+        return e.getXp() > this.puntos;
     }
 }

@@ -5,7 +5,7 @@ public class CondicionMovimiento extends Condicion {
         this.movimiento = movimiento;
     }
 
-    public boolean cumple(Jugador j) {
-        return j.poseeMov(this.movimiento);
+    public boolean cumple(Elemento e) {
+        return e.poseeMov(this.movimiento);
     }
 }

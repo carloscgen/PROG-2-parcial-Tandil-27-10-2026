@@ -7,7 +7,7 @@ public class CondicionAND extends Condicion {
         this.c2 = c2;
     }
 
-    public boolean cumple(Jugador j) {
-        return c1.cumple(j) && c2.cumple(j);
+    public boolean cumple(Elemento e) {
+        return c1.cumple(e) && c2.cumple(e);
     }
 }
