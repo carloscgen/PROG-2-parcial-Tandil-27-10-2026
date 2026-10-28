@@ -1,3 +1,5 @@
+import java.util.List;
+
 public abstract class Elemento {
     private String nombre;
 
@@ -18,4 +20,6 @@ public abstract class Elemento {
     public String getNombre() {
         return this.nombre;
     }
+
+    public abstract List<Jugador> buscar(Condicion c);
 }

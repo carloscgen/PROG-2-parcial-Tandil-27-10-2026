@@ -9,6 +9,14 @@ public class Equipo extends Elemento {
         this.elementos = new ArrayList<>();
     }
 
+    public List<Jugador> buscar(Condicion c) {
+        List<Jugador> lista = new ArrayList<>();
+        for (Elemento elemento : elementos) {
+            lista.addAll(elemento.buscar(c));
+        }
+        return lista;
+    }
+
     public boolean poseeMov(String mov) {
         for (Elemento elemento : elementos) {
             if (elemento.poseeMov(mov)) {

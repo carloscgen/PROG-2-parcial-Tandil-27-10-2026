@@ -17,6 +17,14 @@ public class Jugador extends Elemento {
         this.estrategia = estrategia;
     }
 
+    public List<Jugador> buscar(Condicion c) {
+        List<Jugador> lista = new ArrayList<>();
+        if (c.cumple(this)) {
+            lista.add(this);
+        }
+        return lista;
+    }
+
     public void agregarMov(String mov) {
         this.movimientos.add(mov);
     }
