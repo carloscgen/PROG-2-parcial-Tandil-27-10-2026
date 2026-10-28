@@ -33,8 +33,21 @@ public class Equipo extends Elemento {
         return total;
     }
 
+    public void agregarElemento(Elemento e) {
+        this.elementos.add(e);
+    }
+
     public double calcularAura() {
-        return 0;
+        if (elementos.isEmpty()) {
+            return 0;
+        }
+        double valor = 0;
+
+        for (Elemento elemento : elementos) {
+            valor += elemento.calcularAura();
+
+        }
+        return valor / elementos.size(); // SIN ANIDAMIENTOS
     }
 
     public int getTemporadaDebut() {

@@ -29,6 +29,10 @@ public class Jugador extends Elemento {
         return estrategia.calcular(this);
     }
 
+    public void cambiarEstrategia(Estrategia e) {
+        this.estrategia = e;
+    }
+
     public int getTemporadaDebut() {
         return this.tempDebut;
     }
