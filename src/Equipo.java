@@ -9,28 +9,18 @@ public class Equipo extends Elemento {
         this.elementos = new ArrayList<>();
     }
 
-    public List<Jugador> buscar(Condicion c) {
-        List<Jugador> lista = new ArrayList<>();
-        for (Elemento elemento : elementos) {
-            lista.addAll(elemento.buscar(c));
-        }
-        return lista;
-    }
-
-    public boolean poseeMov(String mov) {
-        for (Elemento elemento : elementos) {
-            if (elemento.poseeMov(mov)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public double getXp() {
+    public int getTemporadaDebut() {
         if (elementos.isEmpty()) {
             return 0;
         }
-        return elementos.get(0).getXp();
+        int anioAntiguo = elementos.get(0).getTemporadaDebut();
+        for (Elemento elemento : elementos) {
+            int temp = elemento.getTemporadaDebut();
+            if (temp < anioAntiguo) {
+                anioAntiguo = temp;
+            }
+        }
+        return anioAntiguo;
     }
 
     public int getCantidadVictorias() {
@@ -41,8 +31,11 @@ public class Equipo extends Elemento {
         return total;
     }
 
-    public void agregarElemento(Elemento e) {
-        this.elementos.add(e);
+    public double getXp() {
+        if (elementos.isEmpty()) {
+            return 0;
+        }
+        return elementos.get(0).getXp();
     }
 
     public double calcularAura() {
@@ -58,18 +51,25 @@ public class Equipo extends Elemento {
         return valor / elementos.size(); // SIN ANIDAMIENTOS
     }
 
-    public int getTemporadaDebut() {
-        if (elementos.isEmpty()) {
-            return 0;
-        }
-        int anioAntiguo = elementos.get(0).getTemporadaDebut();
+    public boolean poseeMov(String mov) {
         for (Elemento elemento : elementos) {
-            int temp = elemento.getTemporadaDebut();
-            if (temp < anioAntiguo) {
-                anioAntiguo = temp;
+            if (elemento.poseeMov(mov)) {
+                return true;
             }
         }
-        return anioAntiguo;
+        return false;
+    }
+
+    public void agregarElemento(Elemento e) {
+        this.elementos.add(e);
+    }
+
+    public List<Jugador> buscar(Condicion c) {
+        List<Jugador> lista = new ArrayList<>();
+        for (Elemento elemento : elementos) {
+            lista.addAll(elemento.buscar(c));
+        }
+        return lista;
     }
 
 }

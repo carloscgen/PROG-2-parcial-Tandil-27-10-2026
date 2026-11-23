@@ -17,26 +17,6 @@ public class Jugador extends Elemento implements Comparable<Jugador> {
         this.estrategia = estrategia;
     }
 
-    public List<Jugador> buscar(Condicion c) {
-        List<Jugador> lista = new ArrayList<>();
-        if (c.cumple(this)) {
-            lista.add(this);
-        }
-        return lista;
-    }
-
-    public void agregarMov(String mov) {
-        this.movimientos.add(mov);
-    }
-
-    public boolean poseeMov(String mov) {
-        return this.movimientos.contains(mov);
-    }
-
-    public double calcularAura() {
-        return estrategia.calcular(this);
-    }
-
     public void cambiarEstrategia(Estrategia e) {
         this.estrategia = e;
     }
@@ -45,16 +25,38 @@ public class Jugador extends Elemento implements Comparable<Jugador> {
         return this.tempDebut;
     }
 
+    public int getCantidadVictorias() {
+        return this.victorias;
+    }
+
     public double getXp() {
         return this.puntoExp;
+    }
+
+    public double calcularAura() {
+        return estrategia.calcular(this);
+    }
+
+    public boolean poseeMov(String mov) {
+        return this.movimientos.contains(mov);
+    }
+
+    public void agregarMov(String mov) {
+        if (!poseeMov(mov)) {
+            this.movimientos.add(mov);
+        }
     }
 
     public List<String> getMovimientos() {
         return new ArrayList<>(this.movimientos);
     }
 
-    public int getCantidadVictorias() {
-        return this.victorias;
+    public List<Jugador> buscar(Condicion c) {
+        List<Jugador> lista = new ArrayList<>();
+        if (c.cumple(this)) {
+            lista.add(this);
+        }
+        return lista;
     }
 
     public int compareTo(Jugador j) {

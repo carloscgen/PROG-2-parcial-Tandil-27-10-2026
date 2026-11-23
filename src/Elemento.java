@@ -7,9 +7,9 @@ public abstract class Elemento {
         this.nombre = nombre;
     }
 
-    public abstract double calcularAura();
-
-    public abstract boolean poseeMov(String mov);
+    public String getNombre() {
+        return this.nombre;
+    }
 
     public abstract int getTemporadaDebut();
 
@@ -17,9 +17,9 @@ public abstract class Elemento {
 
     public abstract double getXp();
 
-    public String getNombre() {
-        return this.nombre;
-    }
+    public abstract double calcularAura();
+
+    public abstract boolean poseeMov(String mov);
 
     public abstract List<Jugador> buscar(Condicion c);
 }
