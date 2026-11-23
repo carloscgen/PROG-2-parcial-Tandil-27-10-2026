@@ -62,7 +62,7 @@ public class Equipo extends Elemento {
         if (elementos.isEmpty()) {
             return 0;
         }
-        int anioAntiguo = 9999;
+        int anioAntiguo = elementos.get(0).getTemporadaDebut();
         for (Elemento elemento : elementos) {
             int temp = elemento.getTemporadaDebut();
             if (temp < anioAntiguo) {
