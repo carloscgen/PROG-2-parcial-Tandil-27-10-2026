@@ -60,16 +60,16 @@ public class Equipo extends Elemento {
         return false;
     }
 
-    public void agregarElemento(Elemento e) {
-        this.elementos.add(e);
-    }
-
     public List<Jugador> buscar(Condicion c) {
         List<Jugador> lista = new ArrayList<>();
         for (Elemento elemento : elementos) {
             lista.addAll(elemento.buscar(c));
         }
         return lista;
+    }
+
+    public void agregarElemento(Elemento e) {
+        this.elementos.add(e);
     }
 
 }
